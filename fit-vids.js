@@ -1,4 +1,8 @@
-class fitVids extends HTMLElement {
+class FitVids extends HTMLElement {
+  constructor() {
+    super();
+  }
+
   connectedCallback() {
     const videoSources = ['iframe[src*="youtube"]', 'iframe[src*="vimeo"]'];
     this.style.display = "block";
@@ -20,4 +24,10 @@ class fitVids extends HTMLElement {
   }
 }
 
-customElements.define("fit-vids", fitVids);
+
+
+if("customElements" in window) {
+	window.customElements.define("fit-vids", FitVids);
+}
+
+export { FitVids };
