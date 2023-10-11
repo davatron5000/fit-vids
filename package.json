@@ -4,6 +4,7 @@
   "description": "Web Component version of FitVids from the maker of FitVids",
   "main": "fit-vids.js",
   "scripts": {
+    "start": "npx http-server .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
