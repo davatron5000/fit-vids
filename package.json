@@ -1,0 +1,25 @@
+{
+  "name": "fit-vids",
+  "version": "1.0.0",
+  "description": "Web Component version of FitVids from the maker of FitVids",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davatron5000/fit-vids.git"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "video",
+    "embeds"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/davatron5000/fit-vids/issues"
+  },
+  "homepage": "https://github.com/davatron5000/fit-vids#readme"
+}
