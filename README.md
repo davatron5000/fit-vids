@@ -21,7 +21,7 @@ Import the custom element and wrap your videos.
 
 ```html
 <!-- import custom element -->
-<script src="path/to/fit-vids/index.js" defer></script>
+<script src="path/to/fit-vids.js" defer></script>
 
 <!-- wrap embeds in fit-vids custom element -->
 <fit-vids>
