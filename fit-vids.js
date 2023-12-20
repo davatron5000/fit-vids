@@ -1,18 +1,29 @@
-class FitVids extends HTMLElement {
-  connectedCallback() {
-    const videoSources = ['iframe[src*="youtube"]', 'iframe[src*="vimeo"]'];
-    this.style.display = "block";
+export class FitVids extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+        }
 
-    this.querySelectorAll(videoSources.join(",")).forEach((video) => {
-      // ↔️ Make it go big
-      video.style.width = "100%";
-      video.style.height = "auto";
-      // 🔛 But not too big
-      video.style.maxWidth = "100%";
+        ::slotted(iframe) {
+          aspect-ratio: var(--w, 16) / var(--h, 9);
+          height: auto;
+          max-width: 100%;
+          width: 100%;
+        }
+      </style>
+      <slot></slot>
+    `;
+  }
+
+  connectedCallback() {
+    this.querySelectorAll("iframe[height][width]").forEach((video) => {
       // 🪄✨ Sprinkle the magic
-      video.style.aspectRatio = `${video.getAttribute(
-        "width"
-      )} / ${video.getAttribute("height")}`;
+      video.style.setProperty("--w", video.getAttribute("width"));
+      video.style.setProperty("--h", video.getAttribute("height"));
       // 🐾 Leave no trace
       video.removeAttribute("height");
       video.removeAttribute("width");
@@ -20,8 +31,6 @@ class FitVids extends HTMLElement {
   }
 }
 
-if("customElements" in window) {
-	window.customElements.define("fit-vids", FitVids);
+if ("customElements" in window) {
+  window.customElements.define("fit-vids", FitVids);
 }
-
-export { FitVids };
