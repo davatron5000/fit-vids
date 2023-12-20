@@ -20,7 +20,7 @@ export class FitVids extends HTMLElement {
   }
 
   connectedCallback() {
-    this.querySelectorAll("iframe").forEach((video) => {
+    this.querySelectorAll("iframe[height][width]").forEach((video) => {
       // 🪄✨ Sprinkle the magic
       video.style.setProperty("--w", video.getAttribute("width"));
       video.style.setProperty("--h", video.getAttribute("height"));
